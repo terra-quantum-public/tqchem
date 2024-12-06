@@ -14,7 +14,7 @@ You can install tqchem from conda via
 
 .. code-block:: shell
 
-   conda install -c conda-forge tqchem
+   conda install tqchem -c conda-forge -c https://repo.prefix.dev/terraquantumag
 
 
 You need a license key to perform simulations with tqchem.
@@ -24,7 +24,7 @@ Usage
 =====
 
 ``tqchem`` can be used as an SDK from python via its application programming interface (API) or via its command line interface (CLI).
-Usage examples for the API can be found in the `Examples <examples>`_ section and references in the `API references <autoapi/index.html>`_.
+Usage examples for the API can be found in the `Examples <examples.html>`_ section and references in the `API references <autoapi/index.html>`_.
 For examples of the CLI see below.
 
 Command Line Interface (CLI)

@@ -1,0 +1,69 @@
+name: release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Install rattler-build
+      run: |
+        mkdir -p ${{ runner.temp }}/rattler-build
+        curl -Ls \
+          https://github.com/prefix-dev/rattler-build/releases/latest/download/rattler-build-x86_64-unknown-linux-musl \
+          -o ${{ runner.temp }}/rattler-build/rattler-build
+        chmod +x ${{ runner.temp }}/rattler-build/rattler-build
+        echo ${{ runner.temp }}/rattler-build >> $GITHUB_PATH
+
+    - name: Build conda package
+      uses: prefix-dev/rattler-build-action@v0.2.19
+      with:
+        upload-artifact: 'true'
+        artifact-name: 'conda'
+        recipe-path: '.conda-recipe/recipe.yaml'
+        build-args: '--experimental'
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: write
+      attestations: write
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Install rattler-build
+      run: |
+        mkdir -p ${{ runner.temp }}/rattler-build
+        curl -Ls \
+          https://github.com/prefix-dev/rattler-build/releases/latest/download/rattler-build-x86_64-unknown-linux-musl \
+          -o ${{ runner.temp }}/rattler-build/rattler-build
+        chmod +x ${{ runner.temp }}/rattler-build/rattler-build
+        echo ${{ runner.temp }}/rattler-build >> $GITHUB_PATH
+
+    - uses: actions/download-artifact@v4
+
+    - name: Generate artifact attestation
+      uses: actions/attest-build-provenance@v1
+      with:
+        subject-path: |
+          conda/*
+
+    - name: Publish to prefix.dev channel
+      run: |
+        for pkg in $(find conda/* -type f \( -name "*.conda" -o -name "*.tar.bz2" \) ); do
+          echo "Uploading ${pkg}"
+          rattler-build upload prefix -c terraquantumag "${pkg}" 
+        done
