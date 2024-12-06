@@ -1,0 +1,35 @@
+[project]
+name = "tqchem"
+version = "0.1.2"
+description = "TQchem a toolkit for chemistry. It includes functions to represent molecular systems in internal coordinates and perform optimization."
+readme = "README.md"
+classifiers = [
+    'Programming Language :: Python :: 3',
+    'License :: Other/Proprietary License',
+    'Operating System :: OS Independent',
+]
+requires-python = "== 3.12"
+authors = [
+    {name = "Roman Ellerbrock", email = "romanellerbrock@gmail.com"},
+    {name = "Ruslan Mallaev", email = "ruma@terraquantum.swiss"},
+    {name = "Alexander Paul", email = "alp@terraquantum.swiss"},
+]
+maintainers = [
+    {name = "Ruslan Mallaev", email = "ruma@terraquantum.swiss"},
+    {name = "Alexander Paul", email = "alp@terraquantum.swiss"},
+    {name = "Roman Ellerbrock", email = "romanellerbrock@gmail.com"},
+]
+dependencies = []
+license = {file = "LICENSE.txt"}
+
+[project.scripts]
+tqchem = "tqchem.__main__:main"
+
+[build-system]
+# These are the assumed default build requirements from pip:
+# https://pip.pypa.io/en/stable/reference/pip/#pep-517-and-518-support
+requires = ["setuptools>=40.8.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+tqchem = ["**/*.so", "**/*.pyd"]

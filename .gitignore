@@ -1,0 +1,15 @@
+# Environments
+.env
+.venv
+env/
+venv/
+*/venv/
+
+docs/build
+output
+
+.lbfgs*
+**/tmp
+
+.pixi
+.idea

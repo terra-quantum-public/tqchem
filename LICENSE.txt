@@ -1,0 +1,210 @@
+TQChem Academic Use License Agreement
+
+This TQChem Academic Use License Agreement (hereinafter referred to as: "Agreement") establishes terms and conditions on how the Terra Quantum GmbH, Barthstra�e 18, 80339 Munich, Germany (hereinafter referred to as: "Terra Quantum") enables the party entering into this Agreement (hereinafter referred to as: "Licensee") to use the software TQChem of Terra Quantum for non-commercial academic purposes.
+
+Section 1. Scope of Agreement
+(1) Parties. Parties to this Agreement are exclusively Terra Quantum and the Licensee. Neither Party is authorized by this Agreement to make any declarations on behalf of the respective other Party or to represent it. Each Party shall ensure that its obligations entered into with this Agreement shall also apply to its legal successors.
+
+(2) Subject Matter. The subject of this Agreement is the licensing of the software TQChem of Terra Quantum to the Licensee. TQChem is a software package for the use in the field of chemistry as further specified in the Annex "Service Description" (hereinafter: "Licensed Product").
+
+(3) Order of Precedence. This Agreement consists of this contract document and
+
+-the Annex "Service Description" and
+-the Annex "Open Source Software Components".
+
+In the event of any inconsistency between provisions in this contract document and provisions in annexes, the provisions in this contract document shall always prevail unless the Parties expressly agree otherwise with documented intent to deviate.
+
+In the event of any inconsistency between provisions in different annexes, provisions in a higher- listed annex shall prevail unless the Parties expressly agree otherwise with documented intent to deviate.
+
+(4) Limitation to Non-Commercial Academic Purpose. The Licensed Product is provided for and Licensee is authorized to use any product or service created through the use of the Licensed Product for non-commercial academic purposes only. "Non-Commercial Academic Purpose" shall mean the use for academic research, publication or other not-for-profit scholarly purposes, which are generally undertaken at an educational, non-profit, charitable or governmental institution, and which does not involve and is not intended to lead to the production or manufacture of products for sale, or the enhancement of a product or service in or proposed for commerce, or the performance of services for a fee (e.g. consulting services) and shall in particular but not limited to exclude services leading to indirect commercial benefits such as in joint academic-industry projects (e.g. a university collaborating on a grant with a corporate partner).
+Section 2. Provision of the Licensed Product
+(1) Licensed Product. Terra Quantum shall deliver the Licensed Product to the Licensee in machine readable form at its option either as a download, transferred by remote data transfer or stored on a type of data storage media in common use at the time. If it has been agreed that software documentation will be provided, the Licensee shall receive software documentation as an electronic document in English language, unless otherwise agreed.
+(2) System Environment. Insofar as system requirements are set forth in the Annex "Service Description", the Licensee is responsible for providing a system environment in accordance with them and for the installation of the Licensed Product on its system environment.
+(3) Open Source and Public Domain Software. Unless agreed otherwise, Terra Quantum is entitled to provide the Licensee with a Licensed Product that consist of software or includes software components to which an open-source license applies or which are in the public domain.
+Section 3. Grant of Rights
+(1) Right of Use. Upon this Agreement becoming effective, Terra Quantum shall grant to the Licensee a revocable, non-exclusive, non-transferable and non-sublicensable right to use the Licensed Product limited to Non-Commercial Academic Purposes subject to the terms of this Agreement and as may be indicated in the Annex "Service Description" for the duration of the Agreement.
+
+(2) Right of Use for Affiliates. The above right of use is granted to the Licensee only. Affiliates of the Licensee shall only have a right of use if and insofar as this is expressly agreed between the Parties in written form. "Affiliate" means any person, corporation, or other entity that now or in the future, directly or indirectly controls, is controlled by or is under common control with the Licensee. For purposes of this definition, "control" means the power to direct or exert a determining influence on the management of an entity.
+
+(3) Ownership of the Licensed Product. Nothing in this Agreement shall transfer ownership or any intellectual property rights of Terra Quantum relating to the Licensed Product to the Licensee. No intellectual property rights to the Licensed Product are granted to the Licensee by Terra Quantum, except when and to the extent expressly specified in this Agreement.
+
+(4) Rights to Feedback. Licensee may provide Terra Quantum with feedback, suggestions, ideas, enhancements, recommendations, specifications or other information about the Licensed Product, including code and any other copyrightable material (hereinafter: "Feedback"). If the Licensee provides Feedback, then Terra Quantum may use that Feedback without restriction and without obligation to the Licensee. The Licensee shall grant Terra Quantum any transferable intellectual property rights to Feeback non-exclusive, unlimited in space, time and content, freely transferable, freely sub-licensable and royalty-free.
+
+If the Parties have entered into a Contributor License Agreement, this shall take precedence over this provision.
+
+(5) Rights to Open Source and Public Domain Software. Insofar as Terra Quantum provides the Licensee with a Licensed Product that consist of software or includes software components to which an open-source license applies or which are in the public domain, Terra Quantum might indicate that the provisions of this open source license or the provisions applicable to the public domain might apply to the scope of the transfer or granting of rights to this software or these software components in deviation from this Agreement, in particular the above provisions under para. 1. This applies in particular the software mentioned in Annex "Open Source Software Components".
+Section 4. Free Use
+Terra Quantum offers the use of the Licensed Product for Non-Commercial Academic Purposes free of charge to the Licensee.
+Section 5. Third Party Rights
+(1) Notices. Each Party shall immediately notify the other Party in writing if a third party claims that the provision of the Licensed Product to the Licensee violates its rights.
+Insofar as a third party asserts that the provision of the Licensed Product to the Licensee infringes its rights, Terra Quantum will examine this. Terra Quantum is entitled to defend the claims asserted by the third party out of court and in court. The Licensee undertakes not to intervene in the legal defense of Terra Quantum and to support Terra Quantum to a reasonable extent in defending the claims asserted by the third party, in particular by informing Terra Quantum about the communication of the Licensee with the third party.
+(2) Remedies. Insofar as the provision of the Licensed Product to the Licensee infringes the rights of third parties, Terra Quantum is entitled, to
+a) modify the Licensed Product in such a way that it no longer infringes the rights of the third party, or
+b) to acquire the right required for the use complained of,
+provided in each case that the contractual use by the Licensee is maintained.
+(3) Indemnification. Insofar as the provision of the Licensed Product to the Licensee infringes the rights of third parties, Terra Quantum shall indemnify the Licensee within the scope of the claims for compensation to which the Licensee is entitled against claims to which the third party is entitled, unless Terra Quantum is not responsible for the breach of duty. The claim for indemnification is limited in amount in accordance with the provisions for liability for damages under the Agreement.
+(4) Exceptions. Terra Quantum is not responsible for an infringement of the rights of third parties by the Licensee, insofar as this infringement results from an exceeding of the right of use granted according to this Agreement. In this case, the Licensee shall indemnify Terra Quantum against all claims asserted by the third party, unless the Licensee is not responsible for the breach of duty; further statutory or contractual claims of Terra Quantum shall remain unaffected.
+Section 6. Limitation of Liability
+(1) Liability without contractual Limitations. Terra Quantum shall be liable without any contractual limitation according to the statutory provisions
+a) for damages as far as they are based on the absence of a quality for which Terra Quantum has assumed a guarantee;
+b) for intent;
+c) for damages as far as they are based on the fact that Terra Quantum has fraudulently concealed a defect;
+d) for damages resulting from injury to life, body or health which are based on an intentional or negligent breach of duty by Terra Quantum or otherwise on intentional or negligent conduct of a legal representative or vicarious agent of Terra Quantum;
+e) for damages other than those listed in above letter d) which are based on an intentional or grossly negligent breach of duty by Terra Quantum or otherwise on intentional or grossly negligent conduct of a legal representative or vicarious agent of Terra Quantum;
+f) under the German Product Liability Act (ProdhafG), the General Data Protection Regulation and the German Federal Data Protection Act (BDSG).
+
+(2) Limitation. In cases other than those listed in para. 1, the liability of Terra Quantum shall be limited to the compensation of the foreseeable damage typical for this type of Contract, as far as the damage is based on a negligent breach of essential obligations by Terra Quantum or by a legal representative or Vicarious Agent of Terra Quantum. Material obligations are obligations the fulfilment of which is essential for the proper performance of the Agreement and on the fulfilment of which the Licensee regularly relies and may rely.
+
+(3) Exclusions. In cases other than those listed in para. 1 and para. 2, the liability of Terra Quantum, the legal representatives of Terra Quantum and the Vicarious Agents of Terra Quantum due to negligence shall be excluded.
+
+The objection of contributory negligence shall remain unaffected.
+
+(4) Scope of Limitations and Exclusions. The above provisions in this Section shall apply to all contractual and non-contractual claims for damages irrespective of their legal basis and accordingly also to the liability for reimbursement of futile expenses.
+Section 7. Duties and Obligations of the Licensee
+(1) The Licensee shall fulfill all duties and obligations, in particular cooperation, which are necessary in its contractual area of responsibility for the performance of the Agreement.
+(2) The Licensee shall in particular but not limited to at its own expense:
+
+a) not remove or alter any copyright, trademark or other proprietary rights notice(s) contained in any portion of the Licensed Product;
+
+b) not use Terra Quantum's or any of its suppliers' names, logos, or trademarks to market applications without express written permission;
+
+c) not use the Licensed Product in any manner or for any purpose that infringes, misappropriates or otherwise violates any intellectual property or right of any third party, or that violates any applicable law;
+
+d) cause all of its employees, contractors and, if applicable, Affiliates entitled to make use of the right to use granted under this Agreement, to be contractually bound to comply with the relevant terms of this Agreement and not to use the Licensed Product beyond the terms of this Agreement and for any purposes other than operating within the scope of their services for Licensee. Licensee shall be responsible for any and all actions and omissions of its employees, contractors and, if applicable, Affiliates, whom the Licensee enables access to and relating to the use of the Licensed Product;
+
+e) except when and to the extent explicitly provided in this Agreement, not transfer, publish, disclose, display or otherwise make available the Licensed Product; and
+
+f) not attempt or enlist a third party to conduct or attempt to conduct any of the above.
+Section 8. Exports Controls
+The Licensee agrees to comply with all applicable sanctions (including embargoes) and reexport control laws and regulations including but not limited to (to the extent applicable) those of the Federal Republic of Germany, the European Union and the United States of America.
+Section 9. Confidentiality
+
+(1) Confidential information within the meaning of this Agreement shall be all information which the disclosing Party discloses to or makes available to the respective other Party (hereinafter also referred to as "Recipient") during the existence of this Agreement, i.e. in the period between entry into force and termination, irrespective of whether this is done in writing, orally, in electronic form or in any other manner, and
+a) which are expressly marked as "confidential" or "secret" by the disclosing Party and recognizable to the Recipient, or
+b) the confidentiality of which is due to an interest in secrecy of the disclosing Party or an enterprise affiliated with it within the meaning of Sections 15 et seq. of the German Stock Corporation Act (AktG) recognizable to the Recipient and for which there is a legitimate interest in confidentiality, or
+c) the confidentiality of which the Parties mutually agree.
+The disclosing Party shall make the marking pursuant to letter a) above at its reasonable discretion in accordance with Section 315 of the German Civil Code ("BGB") and, in the case of marking orally or by telephone, shall confirm such marking in text form without undue delay upon request of the Recipient.
+In case of doubt, if it is unclear to the Recipient whether information is confidential information and whether and to what extent obligations under this Agreement exist with respect to such information, the Recipient shall inform the disclosing Party in order to obtain clarification in a timely manner.
+
+(2) The Recipient is obliged to,
+a) to treat confidential information of the disclosing Party as business secrets and to protect it from disclosure to third parties by means of confidentiality measures appropriate under the circumstances, taking into account the state of the art, and
+b) to refrain from using confidential information of the disclosing Party, unless this is necessary to achieve the purpose or also to execute agreements between the Parties.
+
+(3) Exceptions:
+a) The Recipient's obligations under para. 2 shall not apply to the extent that
+aa) the confidential information, at the time of its disclosure or making available to third parties, as a whole or also in the exact arrangement and composition of its components, has become generally known or readily accessible to persons in the circles which usually handle this type of information,
+bb) the confidential information, after its disclosure or making available by the disclosing Party - without this being the responsibility of the Recipient - as a whole or also in the exact arrangement and composition of its components, has become generally known or readily accessible to persons in the circles which usually handle this type of information, this with effect from the time of becoming known,
+cc) the confidential information is disclosed or made available to the Recipient by a third party in a lawful manner and without restriction as to secrecy or use,
+dd) the Recipient has independently created or developed the confidential information independently of its disclosure or access by the disclosing Party; or
+ee) the confidential information must be disclosed or made available due to an enforceable decision by courts, authorities or other government bodies or due to a statutory order; in this case, the Recipient shall remain obliged to notify the disclosing Party of the intended disclosure or making available of the confidential information in writing in good time in advance in order to enable the disclosing Party to review the obligation, assert rights and file legal remedies in order to prevent the disclosure or making available. The obligation to give the disclosing Party timely prior written notice of the intended disclosure or making available of the confidential information shall not apply to the extent that the Recipient would thereby violate statutory provisions and/or enforceable orders of courts or competent authorities or other governmental bodies.
+b) Furthermore, the obligations of the Recipient pursuant to para. 2 shall not apply if the disclosing Party has expressly consented to the disclosure or making available of the confidential information to third parties, this with effect from the time of receipt of the consent by the Recipient.
+Already upon conclusion of the agreement, the disclosing Party shall declare to the Recipient its consent to the disclosure or making available of confidential information
+aa) to courts and/or authorities, to the extent necessary for the enforcement of or defense against claims or rights, and
+bb) to investors and potential acquirers or new shareholders, insofar as this is necessary in the context of due diligence or the execution of a transaction and they are under a similar obligation to maintain confidentiality as the Recipient, and
+cc) to an insurance company of the Recipient, insofar as this is necessary for the performance of the insurance contract, in particular for the maintenance of insurance coverage or for the fulfillment of obligations vis-�-vis the insurance company, and the insurance company is obligated to maintain confidentiality in a comparable manner as the Recipient, and
+dd) to advisors of the Recipient who are legally obligated to maintain confidentiality by virtue of their profession (in particular lawyers, auditors or tax advisors), insofar as this is necessary for the advisor to advise the Recipient (including in the context of due diligence or the execution of a transaction) and the advisor is not released by the Recipient from its obligation to maintain confidentiality.
+c) The Recipient may disclose confidential information of the disclosing Party to companies affiliated with it within the meaning of Sections 15 et seq. German Stock Corporation Act (AktG) and persons it uses to fulfill its obligations (hereinafter "Vicarious Agents", e.g. employees or subcontractors of the Recipient) and make it accessible to them,
+aa) to the extent that the disclosure or making available of the respective confidential information is necessary for the achievement of the purpose or for the contractual implementation of agreements between the Parties (need-to-know principle) and
+bb) insofar as the affiliated companies within the meaning of �� 15 et seq. German Stock Corporation Act (AktG) and Vicarious Agents are obligated to maintain secrecy at least in a comparable manner to the Recipient, whereby such an obligation to employees of the Recipient may also be effected by the respective employment contract and supplementary instructions of the Recipient to its employees and the obligation to maintain secrecy must continue to exist without time limitation even after termination of the employment contract.
+d) The statutory provisions on the burden of presentation and proof shall apply.
+e) Section 5 of the German Act on the Protection of Business Secrets (GeschGehG) shall neither be limited nor excluded by the Agreement or by an individual agreement.
+
+(4) The obligations under para. 2 with respect to confidential information disclosed or made available to the Recipient by the disclosing Party between the commencement and termination of the Agreement shall survive the termination of the Agreement, without any time limit in the case of trade secrets as defined by the German Act on the Protection of Business Secrets (GeschGehG), and otherwise for five years after the termination of the Agreement.
+The Recipient shall ensure that its affiliated companies and Vicarious Agents take all necessary measures to enable the Recipient to fulfill its obligations towards the disclosing Party after termination of the Agreement.
+
+(5) Upon termination of this Agreement, the Recipient shall be obligated to the disclosing Party to disclose all confidential information,
+a) insofar as the Recipient has received it in physical form (e.g. on paper) or on a movable data carrier in electronic form (e.g. on a USB stick or DVD), to return it to the disclosing Party without being requested to do so and without delay; or
+b) destroy it without undue delay upon request of the disclosing Party and subsequently confirm to the disclosing Party without undue delay and in writing that the destruction has been carried out.
+The obligations under sentence 1 shall not apply - notwithstanding the continuing obligation to maintain confidentiality,
+a) insofar and as long as the confidential information is subject to an obligation or authorization of the recipient to store or otherwise retain it, or also
+b) insofar and as long as the Recipient electronically stores the confidential information due to technically and organizationally necessary routine data backups (e.g. as a temporary data backup on a data carrier of the Recipient).
+As far and as soon as the legal obligations or authorizations of the Recipient no longer exist and the data backup is also no longer technically and organizationally necessary, the obligations pursuant to sentence 1 shall apply accordingly, with the proviso that the Recipient shall be obligated to destroy the data without undue delay pursuant to sentence 1 letter b) even without a request by the disclosing Party.
+
+(6) The Recipient shall have no right of retention against the claims for surrender or destruction of confidential information of the disclosing Party.
+
+(7) Further agreements on the confidentiality of information and its utilization or an agreement on commissioned processing as well as statutory obligations, for example under the German Act on the Protection of Business Secrets (GeschGehG) and the applicable data protection law, shall neither be restricted nor excluded thereby.
+
+(8) Public declarations by the Parties regarding cooperation shall only be made by prior mutual agreement.
+Section 10. Term and Termination
+
+(1) Term. The Agreement shall enter into force upon the time the Licensee ticks the checkbox to agree to this Agreement and clicks the button labelled "Accept" or with a similar language. The Agreement shall be concluded for an indefinite period.
+
+(2) Termination. Each Party is entitled to terminate the Agreement with two weeks' notice to the end of each calendar month. The right to terminate the Agreement for good cause shall remain unaffected. Any termination of the Agreement must be in writing to be effective.
+
+(3) Effect of Termination. Upon termination of the Agreement, the Licensee shall immediately cease using the Licensed Product, and return or, if instructed by Terra Quantum, destroy or delete all materials relating to the Licensed Product. If the Licensee continues to use Licensed Product after termination of the Agreement, it shall not be extended thereby; Section 545 of the German Civil Code (BGB) shall not apply. Any terms and conditions of the Agreement, which by their nature should survive a termination or expiry (in particular but not limited to the provisions on secrecy and use of confidential information and Section 1 para. 4), shall survive and continue in full force and effect after such termination.
+
+Section 11. General Provisions
+(1) Applicable Law. This Agreement shall be governed by and construed in accordance with the laws of the Federal Republic of Germany, excluding the UN Convention on Contracts for the International Sale of Goods (CISG) and excluding any recourse or further reference.
+
+(2) Jurisdiction and Mandatory Venue. The exclusive place of jurisdiction for all disputes arising out of or in connection with the Agreement between Terra Quantum and the Licensee between Terra Quantum and a Licnesee who is a merchants, legal entities under public law or special funds under public law shall be Munich. The agreement on the place of jurisdiction shall not apply if an exclusive place of jurisdiction for the action or the respective proceedings is established by law or if an agreement on the place of jurisdiction is inadmissible for other reasons.
+
+(3) Language. This Agreement is written in the English language. Insofar as this Agreement is executed in any other language than English, the English version shall prevail in the event of any discrepancies. The headings in this Agreement are inserted for convenience only and shall not affect the interpretation or construction of this Agreement.
+(4) Dispute Resolution. In the event of any disputes arising from or in connection with this Agreement, the Parties shall endeavor to reach an amicable solution out of court. The statute of limitations for the disputed claim shall be suspended for the duration of the attempt to settle the dispute out of court. The assertion of rights and claims in court shall neither be excluded nor restricted by sentence 1.
+(5) Amendments. Amendments or supplements to the Agreement must be made in writing in order to be effective. This also applies to the amendment or cancellation of this clause. Deviating individual contractual agreements shall take precedence.
+
+(6) Written Form. Insofar as the Parties agree in this Agreement that a declaration or notice must be made in writing in order to be effective, transmission by telecommunication by means of fax or an e-mail that meets the requirements of text form shall be sufficient to comply with these requirements and, in the case of the conclusion of an agreement or contract, the exchange of declarations that meet the requirements of written form.
+
+(7) Assignment. The Agreement shall extend to and be binding upon the successors and permitted assignees of the Parties. Terra Quantum may assign the Agreement, or any right granted thereunder to any of its Affiliates that assumes Terra Quantum's obligations. The Licensee shall not be entitled to assign the Agreement, in whole or in part, or any of the rights or claims arising from the Agreement without Terra Quantum's prior written consent. Section 354a of the German Commercial Code (HGB) shall remain unaffected.
+
+(8) Severability. If any provision of the Agreement does not become part of the Agreement in whole or in part or is or becomes invalid or unenforceable, the remainder of the Agreement shall remain valid. The invalid or unenforceable provision shall be replaced by way of interpretation or, in the alternative, reinterpretation or, in the alternative, a separate agreement, by the valid and enforceable provision which corresponds or comes closest to the meaning and purpose of the invalid or unenforceable provision, insofar as the content of the Agreement is not substantially changed thereby.
+
+*****
+Annex "Service Description"
+
+Software Overview
+This software package provides access to a suite of advanced algorithms in a binary format, distributed as part of a downloadable software package. The core components include:
+* TQ SDK (client): A lightweight wrapper for API access, with integrated optional authentication and identity services.
+* Encrypted Algorithm Binary: The binary file contains the algorithms and the API to access them, including capabilities to submit constraints, hyperparameters, and vector-based objective functions.
+Access to the algorithms and APIs requires:
+* A valid license key or secret, provided by Terra Quantum.
+* Authentication to decrypt the binary on demand, using the appropriate API commands.
+Technical Service Description
+The service requires the Licensee to integrate and maintain the following components in their infrastructure:
+1. TQ SDK Installation:
+o Our SDK facilitates convenient interaction with the local algorithm binaries and also supports authentication with our online services, when required. The algorithm binary, downloaded from our secure portal, requires a valid license key, which the Licensee obtains through their authenticated access to the portal.
+
+2. Algorithm Binary:
+o The encrypted binary file contains the algorithms, which are unlocked and decrypted on demand once a valid license key, provided by Terra Quantum, is authenticated.
+o License keys are issued via an automated licensing system, enabling secure access to the algorithms.
+o Upon successful authentication, API calls are used to submit constraints, hyperparameters, and vector-based objective functions.
+o License keys control the level of access, validity period, and usage scope, ensuring compliance with non-commercial academic purposes.
+
+System Requirements of the Licensee
+To ensure proper functioning of the software package, the Licensee must meet the following minimum system requirements:
+ Operating System:
+* Ubuntu 20.04 LTS or higher
+* CentOS 8 or higher
+* Red Hat Enterprise Linux (RHEL) 8 or higher
+* Other Linux distributions compatible with GCP infrastructure may be supported but must meet the same general system requirements
+
+Hardware:
+* Minimum of 16 CPU cores for computational tasks.
+* Optional GPU support is available for accelerated performance (NVIDIA Tesla or A100 series recommended).
+
+Cloud/on-premise Support:
+* While Terra Quantum runs/offers these algorithms at scale in the cloud, the software can also run on static resources in local environments.
+* Orchestration software is recommended for managing containers and workloads at scale, but they are not required for local or smaller-scale deployments.
+* Static infrastructure or virtualized environments (VMs) that match the reference setup.
+* Adequate storage to handle the encrypted binaries and related data.
+* Permissions within the network (firewall, protocols, etc.)
+Licensing & Authentication
+The software package requires a valid license key, provided by Terra Quantum, to unlock the algorithm binaries. The Licensee is responsible for ensuring that:
+* The license key is kept secure and is not shared with unauthorized parties. (recommendation: robust secrets management application)
+* Proper authentication protocols are in place to handle access and decryption.
+Maintenance & Updates
+Algorithm binaries, SDK updates, and relevant API changes may be updated and made available via the download portal or artifact registry. Licensees are responsible for ensuring compatibility with newer versions. For the latest system requirements and technical documentation, please refer to the documentation.
+Specification if Affiliates are Included
+Affiliates may use the Licensed Product if explicitly authorized in the Agreement. In such cases, Affiliates must comply with the same system and security requirements as the Licensee.
+
+Annex "Open Source Software Components"
+The Licensed Product consist of software or includes software components to which open-source licenses apply in deviation from this Agreement:
+The libraries
+a) "blite-python" (https://github.com/tblite/tblite),
+b) "ase" (https://wiki.fysik.dtu.dk/ase//about.html),
+c) "openmm" (https://github.com/openmm/openmm),
+d) "crest" (https://github.com/crest-lab/crest), and
+e) "xtb" (https://github.com/grimme-lab/xtb)
+are subject to the LGPL 3.0 (https://www.gnu.org/licenses/lgpl-3.0.html) and the GPL 3.0 (https://www.gnu.org/licenses/gpl-3.0).
+Terra Quantum | TQChem Academic Use License Agreement
+Version: 2024-01
+Date: December 03, 2024

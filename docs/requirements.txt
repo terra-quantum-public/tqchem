@@ -1,0 +1,7 @@
+pandoc
+sphinx
+sphinx-autoapi
+nbsphinx
+nbconvert
+nbsphinx-link
+furo

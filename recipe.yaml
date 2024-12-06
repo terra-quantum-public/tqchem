@@ -1,0 +1,48 @@
+context:
+  name: ${{ load_from_file("pyproject.toml").project.name }}
+  version: ${{ load_from_file("pyproject.toml").project.version }}
+  description: ${{ load_from_file("pyproject.toml").project.description }}
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  path: .
+  use_gitignore: true
+
+build:
+  noarch: python
+  script: pip install . -v
+
+requirements:
+  host:
+    - pip
+    - python ==3.12
+    - setuptools
+    - wheel
+  run:
+    - openff-toolkit >=0.16.5,<0.17
+    - tblite-python >=0.3.0,<0.4
+    - xtb >=6.5.1,<7
+    - rdkit >=2024.3.5,<2025
+    - networkx >=3.4.1,<4
+    - openmm >=8.1.2,<9
+    - matplotlib >=3.9.2,<4
+    - ase >=3.23.0,<4
+    - numpy >=1.26.4,<2
+    - py3dmol >=2.4.0,<3
+    - keygen-py >=0.1.2,<1
+    - py-machineid >=0.6.0,<0.7
+    - crest >=2.12,<3
+    - openmmforcefields >=0.14.1, <0.15
+    - pandas >=2.2.3,<3
+    - plotly >=5.24.1,<6
+    - grpcio >=1.62.2,<2
+    - grpcio-tools >=1.62.2,<2
+    - grpcio-reflection >=1.62.2,<2
+
+about:
+  description: ${{ description }}
+  repository: https://github.com/terra-quantum-public/tqchem
+  documentation: https://tqchem-docs.terraquantum.io
