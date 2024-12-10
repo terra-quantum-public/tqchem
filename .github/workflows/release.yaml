@@ -1,69 +1,127 @@
-name: release
+name: Publish to Prefix.dev channel
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 permissions:
   contents: read
 
+concurrency:
+  cancel-in-progress: true
+  group: tqchem
+
 jobs:
-  build:
+  should_skip:
+    name: Check should skip
     runs-on: ubuntu-latest
-
+    outputs:
+      version_changed: ${{ steps.check.outputs.version_changed }}
+      version: ${{ steps.get_current_version.outputs.version }}
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Get version from pyproject.toml
+        id: get_current_version
+        run: |
+          version=v$(grep '^version' pyproject.toml | sed 's/version = "\(.*\)"/\1/')
+          echo "version=$version" >> $GITHUB_OUTPUT
+      - name: Get latest version
+        id: get_latest_tag
+        run: |
+          latest_tag=$(git describe --tags `git rev-list --tags --max-count=1` || echo "0.0.0")
+          echo "latest_tag=$latest_tag" >> $GITHUB_OUTPUT
+      - name: Check version changed
+        id: check
+        run: |
+          if [ "$VERSION" != "$LATEST_TAG" ]; then
+            echo "version_changed=true" >> $GITHUB_OUTPUT
+            echo "Version has changed from $LATEST_TAG to $VERSION"
+          else
+            echo "version_changed=false" >> $GITHUB_OUTPUT
+            echo "Will skip the pipeline as version has not changed (still on $LATEST_TAG)"
+          fi
+        env:
+          VERSION: ${{ steps.get_current_version.outputs.version }}
+          LATEST_TAG: ${{ steps.get_latest_tag.outputs.latest_tag }}
 
-    - name: Install rattler-build
-      run: |
-        mkdir -p ${{ runner.temp }}/rattler-build
-        curl -Ls \
-          https://github.com/prefix-dev/rattler-build/releases/latest/download/rattler-build-x86_64-unknown-linux-musl \
-          -o ${{ runner.temp }}/rattler-build/rattler-build
-        chmod +x ${{ runner.temp }}/rattler-build/rattler-build
-        echo ${{ runner.temp }}/rattler-build >> $GITHUB_PATH
-
-    - name: Build conda package
-      uses: prefix-dev/rattler-build-action@v0.2.19
-      with:
-        upload-artifact: 'true'
-        artifact-name: 'conda'
-        recipe-path: '.conda-recipe/recipe.yaml'
-        build-args: '--experimental'
+  build:
+    name: Build conda package
+    if: ${{ needs.should_skip.outputs.version_changed == 'true' }}
+    runs-on: ubuntu-latest
+    needs:
+      - should_skip
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install rattler-build
+        run: |
+          mkdir -p ${{ runner.temp }}/rattler-build
+          curl -Ls \
+            https://github.com/prefix-dev/rattler-build/releases/latest/download/rattler-build-x86_64-unknown-linux-musl \
+            -o ${{ runner.temp }}/rattler-build/rattler-build
+          chmod +x ${{ runner.temp }}/rattler-build/rattler-build
+          echo ${{ runner.temp }}/rattler-build >> $GITHUB_PATH
+      - name: Build conda package
+        uses: prefix-dev/rattler-build-action@v0.2.19
+        with:
+          upload-artifact: 'true'
+          artifact-name: 'conda'
+          recipe-path: '.conda-recipe/recipe.yaml'
+          build-args: '--experimental'
 
   release:
-    needs: build
+    name: Release to prefix.dev channel
+    needs:
+      - build
+      - should_skip
     runs-on: ubuntu-latest
-
     permissions:
       id-token: write
       contents: write
       attestations: write
-
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install rattler-build
+        run: |
+          mkdir -p ${{ runner.temp }}/rattler-build
+          curl -Ls \
+            https://github.com/prefix-dev/rattler-build/releases/latest/download/rattler-build-x86_64-unknown-linux-musl \
+            -o ${{ runner.temp }}/rattler-build/rattler-build
+          chmod +x ${{ runner.temp }}/rattler-build/rattler-build
+          echo ${{ runner.temp }}/rattler-build >> $GITHUB_PATH
+      - uses: actions/download-artifact@v4
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: |
+            conda/*
+      - name: Publish to Prefix.dev channel
+        run: |
+          for pkg in $(find conda/* -type f \( -name "*.conda" -o -name "*.tar.bz2" \) ); do
+            echo "Uploading ${pkg}"
+            rattler-build upload prefix -c terraquantumag "${pkg}" || echo "Skipping publishing of ${pkg}"
+          done
+      - name: Build changelog
+        id: build_changelog
+        uses: mikepenz/release-changelog-builder-action@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          toTag: ${{ github.sha }}
+          configurationJson: |
+            {
+              "template": "## Release ${{ needs.should_skip.outputs.version }}",
+            }
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          body: ${{ steps.build_changelog.outputs.changelog }}
+          tag_name: ${{ needs.should_skip.outputs.version }}
+          files: |
+            conda/**/tqchem-*.conda
 
-    - name: Install rattler-build
-      run: |
-        mkdir -p ${{ runner.temp }}/rattler-build
-        curl -Ls \
-          https://github.com/prefix-dev/rattler-build/releases/latest/download/rattler-build-x86_64-unknown-linux-musl \
-          -o ${{ runner.temp }}/rattler-build/rattler-build
-        chmod +x ${{ runner.temp }}/rattler-build/rattler-build
-        echo ${{ runner.temp }}/rattler-build >> $GITHUB_PATH
-
-    - uses: actions/download-artifact@v4
-
-    - name: Generate artifact attestation
-      uses: actions/attest-build-provenance@v1
-      with:
-        subject-path: |
-          conda/*
-
-    - name: Publish to prefix.dev channel
-      run: |
-        for pkg in $(find conda/* -type f \( -name "*.conda" -o -name "*.tar.bz2" \) ); do
-          echo "Uploading ${pkg}"
-          rattler-build upload prefix -c terraquantumag "${pkg}" 
-        done
