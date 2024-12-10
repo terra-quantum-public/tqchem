@@ -45,7 +45,7 @@ autoapi_options = [  # default without private functions
     "special-members",
     "imported-members",
 ]
-autoapi_file_patterns = ["*.pyi", "*.py"]
 autoapi_ignore = ["*/__main__.py"]
+autoapi_file_patterns = ["*.pyi", "*.py"]
 
 html_theme = "furo"

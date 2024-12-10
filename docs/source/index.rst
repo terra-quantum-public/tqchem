@@ -14,7 +14,7 @@ You can install tqchem from conda via
 
 .. code-block:: shell
 
-   conda install tqchem -c conda-forge -c https://repo.prefix.dev/terraquantumag
+    conda install tqchem -c conda-forge -c https://repo.prefix.dev/terraquantumag
 
 
 You need a license key to perform simulations with tqchem.
