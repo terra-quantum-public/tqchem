@@ -1,0 +1,123 @@
+name: Bug Report
+description: Report a bug encountered while operating the tqchem library
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: |
+        Please provide as much info as possible. Not doing so may result in your bug not being addressed in a timely manner.
+        If this matter is security related, please disclose it privately.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: How can we reproduce it (as minimally and precisely as possible)?
+      description: |
+        Include details such as the inputs you used, the commands or scripts run, and any settings configured.
+    validations:
+      required: true
+
+  - type: textarea
+    id: codeExample
+    attributes:
+      label: Code or commands to reproduce the bug
+      value: |
+        ```python
+        # Example: Add your code here
+        from tqchem import ttconf
+
+        # Replace with your data or input
+        result = ttconf("COCCNC")
+        print(result)
+        ```
+      description: |
+        Please include the code snippet or the CLI commands you used to reproduce the bug. Ensure it is minimally reproducible.
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Anything else we need to know?
+
+  - type: textarea
+    id: pythonVersion
+    attributes:
+      label: Python version
+      value: |
+        <details>
+
+        ```console
+        $ python --version
+        # paste output here
+        ```
+
+        </details>
+    validations:
+      required: true
+
+  - type: textarea
+    id: osVersion
+    attributes:
+      label: OS version
+      value: |
+        <details>
+
+        ```console
+        # On macOS/Linux:
+        $ uname -a
+        $ cat /etc/os-release
+        # paste output here
+
+        # On Windows:
+        C:\> wmic os get Caption, Version, BuildNumber, OSArchitecture
+        # paste output here
+        ```
+
+        </details>
+    validations:
+      required: true
+
+  - type: textarea
+    id: tqchemVersion
+    attributes:
+      label: tqchem version
+      value: |
+        <details>
+
+        ```console
+        $ conda list tqchem
+        # paste output here
+        ```
+
+        </details>
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Installed dependencies
+      value: |
+        <details>
+
+        ```console
+        # For installed packages using conda:
+        $ conda list
+        # paste output here
+        ```
+
+        </details>
+      description: |
+        Any dependencies or additional libraries you think are relevant (e.g., `rdkit`).
