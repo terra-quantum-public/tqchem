@@ -106,21 +106,16 @@ jobs:
             echo "Uploading ${pkg}"
             rattler-build upload prefix -c terraquantumag "${pkg}" || echo "Skipping publishing of ${pkg}"
           done
-      - name: Build changelog
-        id: build_changelog
-        uses: mikepenz/release-changelog-builder-action@v5
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          toTag: ${{ github.sha }}
-          configurationJson: |
-            {
-              "template": "## Release ${{ needs.should_skip.outputs.version }}",
-            }
+      - name: Get release notes from commit message
+        id: release-notes
+        run: |
+          echo "content<<EOF" >> $GITHUB_OUTPUT
+          git log -1 --pretty=%b >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
       - name: Create release
         uses: softprops/action-gh-release@v2
         with:
-          body: ${{ steps.build_changelog.outputs.changelog }}
+          body: ${{ steps.release-notes.outputs.content }}
           tag_name: ${{ needs.should_skip.outputs.version }}
           files: |
             conda/**/tqchem-*.conda
