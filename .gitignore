@@ -13,3 +13,5 @@ output
 
 .pixi
 .idea
+
+**/__pycache__

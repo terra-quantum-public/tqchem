@@ -9,10 +9,10 @@
 
 ## **Prerequisites for Installation**
 
-1. **Python Version**:  
-   Ensure you have Python **>=3.9** installed.
+1. **Python Version**:
+   Ensure you have Python **>=3.10** installed.
 
-2. **Conda Environment Manager**:  
+2. **Conda Environment Manager**:
    You must have one of the following environment managers installed:
     - [Conda](https://docs.conda.io/en/latest/miniconda.html)
     - [Anaconda](https://www.anaconda.com/products/distribution#download-section)
@@ -22,7 +22,7 @@
    If you do not have any of the above installed, download and set up your preferred environment manager before proceeding.
 
 3. **License Requirement**:
-    - If you have an interest in using TQChem, go to the following link to request access:  
+    - If you have an interest in using TQChem, go to the following link to request access:
       [https://terraquantum.swiss/tqchem-request-access](https://terraquantum.swiss/tqchem-request-access).
     - Usage is limited to **non-commercial academic purposes**, as specified in the **TQChem Academic Use License Agreement**.
 
@@ -43,7 +43,7 @@ Ensure you have Conda or one of its variants (e.g., Anaconda, Miniconda, or Mamb
 
 ## **Important Notes**
 
-- **Acceptance of EULA:**  
+- **Acceptance of EULA:**
   Upon the first import of the TQChem library in your project, if the EULA (End User License Agreement) has not yet been accepted, you will be presented with the following prompt:
 
    ```
@@ -64,16 +64,16 @@ Ensure you have Conda or one of its variants (e.g., Anaconda, Miniconda, or Mamb
    ```
 
   If you do not accept the license, you will be unable to use the library.
-- **Environment Variable:**  
+- **Environment Variable:**
   The `TQCHEM_LICENSE_KEY` environment variable is automatically verified during the package import. Make sure it is properly set according to the steps provided above.
 
 - The academic license strictly limits usage to **non-commercial academic purposes**.
 
 ## **Support**
 
-- For technical issues or license-related inquiries, contact:  
+- For technical issues or license-related inquiries, contact:
   **[support@terraquantum.swiss](mailto:support@terraquantum.swiss)**
-- **Machine Activation Limit:**  
+- **Machine Activation Limit:**
   If you reach the limit of machine activations allowed by your license, please contact our support team via the email provided above to resolve the issue.
 
 Enjoy working with TQChem!
