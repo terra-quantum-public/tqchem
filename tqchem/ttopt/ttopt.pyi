@@ -3,7 +3,7 @@ from tqchem.ttopt.maxvol import maxvol as maxvol
 from typing import Callable
 
 class TTOpt:
-    """Determine most stable conformer for a given input Molecule
+    """Determine the most stable conformer for a given input Molecule
 
     Attributes
     ----------
@@ -19,6 +19,8 @@ class TTOpt:
         Initial indices for precomputing the initial tensor train
     multiple_indices_function: bool, default=False
         Enable multiple indices evaluation
+    verbosity: int, default=1
+        Control the verbosity of the output (0 = silent, 1 = info)
     """
     n_sweeps: Incomplete
     rank: Incomplete
@@ -32,13 +34,15 @@ class TTOpt:
     opt_opt_list: Incomplete
     cache: Incomplete
     initial_indices: Incomplete
-    def __init__(self, n_points_per_variable: list[int], function: Callable, n_sweeps: int = 2, rank: int = 2, seed: int = 42, initial_indices: list[list[int]] = None, multiple_indices_function: bool = False) -> None: ...
+    verbosity: Incomplete
+    logger: Incomplete
+    def __init__(self, n_points_per_variable: list[int], function: Callable, n_sweeps: int = 2, rank: int = 2, seed: int = 42, initial_indices: list[list[int]] = None, multiple_indices_function: bool = False, verbosity: int = 1) -> None: ...
     @property
     def opt_opt(self):
         """Current value of option of the function related to opt-point."""
     @property
     def y_opt(self):
-        """Current approximation of optimum of the function of interest."""
+        """Current approximation of the optimum of the function of interest."""
     def optimize(self) -> None:
         '''Find the optimum element of the implicitly given multidimensional array.
 

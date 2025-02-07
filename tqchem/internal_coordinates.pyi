@@ -1,7 +1,7 @@
 from _typeshed import Incomplete
-from tqchem.batframe import BATFrame as BATFrame, bat_component as bat_component, bat_to_xyz as bat_to_xyz, xyz_to_bat as xyz_to_bat
+from tqchem.batframe import bat_component as bat_component, bat_to_xyz as bat_to_xyz, xyz_to_bat as xyz_to_bat
 from tqchem.molgraph import MolecularSystem as MolecularSystem, linearized_component_sweep as linearized_component_sweep
-from tqchem.puckering import PuckeringFrame as PuckeringFrame, puckering_to_xyz as puckering_to_xyz, xyz_to_puckering as xyz_to_puckering
+from tqchem.puckering import puckering_to_xyz as puckering_to_xyz, xyz_to_puckering as xyz_to_puckering
 from typing import Any, Iterable
 
 class InternalCoordinates(dict):
@@ -77,7 +77,7 @@ class MolecularGrid:
     molecule: Incomplete
     variables: Incomplete
     constant_coordinates: Incomplete
-    def __init__(self, molecule: MolecularSystem, shift_by_reference: bool = False, **bond_grids) -> None:
+    def __init__(self, molecule: MolecularSystem = None, shift_by_reference: bool = False, **bond_grids) -> None:
         """Initialize Molecular grid used for conformer search
 
         Parameters
@@ -104,10 +104,12 @@ class MolecularGrid:
         """
     def shape(self) -> list[int]: ...
     def n_variables(self): ...
-    def variable_atom_indices(self) -> list[str]:
-        """Convenient way to get string representation of the variables of the grid"""
     def closest_gridpoint(self, molecule: MolecularSystem) -> list[int]:
         """Return the gridpoint most similar to the provided molecule"""
+    def list_variables(self) -> list[str]:
+        """List of variables (Bonds, cycles, inversions) in the molecular grid"""
+    def copy(self) -> MolecularGrid:
+        """Deepcopy of the molecular grid"""
 
 def linearize(dictionary: dict[Any, Iterable]) -> list[Any]:
     """Converts dictionary values (Iterables) into a one-dimensional list
@@ -144,3 +146,5 @@ def xyz_to_internal(molecule: MolecularSystem) -> InternalCoordinates:
 
     Internal Coordinates can consist of multiple components (BAT, puckering, BAT, ...)
     """
+def molecule_coordinates(molecule: MolecularSystem) -> tuple[InternalCoordinates, InternalCoordinates]:
+    """Calculates and returns the internal coordinates for a molecular system"""

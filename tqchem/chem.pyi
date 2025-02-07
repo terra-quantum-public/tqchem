@@ -169,3 +169,7 @@ def generate_rdkit_conformers(molecule: Chem.Mol, n_conformers: int, threshold: 
     -------
     list of conformer ids for the conformers generated
     """
+def calculate_rotational_constants(input_: Path | str | ase.Atoms | Chem.Mol):
+    """Calculate rotational constants with respect to the principle axes"""
+def calculate_rmsd(input1: Path | str | ase.Atoms | Chem.Mol, input2: Path | str | ase.Atoms | Chem.Mol, align: bool = True, center: bool = True):
+    """Calculate RMSD based on Kabsch algorithm for two sets of coordinates"""

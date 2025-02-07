@@ -14,7 +14,7 @@ def initial_tt_indices(molecules: list[MolecularSystem], molgrid: MolecularGrid,
     """
 def molecularGridObjective(molgrid: MolecularGrid, method: str, filter_type: str, charge: int = 0, solvent: str = None, threads: int = 4, reference_energy: float = None, local_optimization: bool = True, ensemble_optimization: bool = False) -> MolecularGridObjective:
     """Construct a MolecularGridObjective"""
-def ttconf_optimizer(molecules: MolecularSystem | list[MolecularSystem], method: str = 'gfn2-xtb', n_sweeps: int = 2, rank: int = 2, seed: int = 42, threads: int = 4, charge: int = 0, solvent: str = None, filter_type: str = 'energy', reference_energy: float = None, local_optimization: bool = True, initialize_indices: bool = True, ensemble_optimization: bool = False, solve_collisions: bool = True, **bond_grids) -> TTopt_Optimizer:
+def ttconf_optimizer(molecules: MolecularSystem | list[MolecularSystem], method: str = 'gfn2-xtb', n_sweeps: int = 2, rank: int = 2, seed: int = 42, threads: int = 4, charge: int = 0, solvent: str = None, filter_type: str = 'energy', reference_energy: float = None, local_optimization: bool = True, initialize_indices: bool = True, ensemble_optimization: bool = False, solve_collisions: bool = True, verbosity: int = 1, **bond_grids) -> TTopt_Optimizer:
     '''Create Optimizer for the parameters provided
 
     Parameters
@@ -54,6 +54,8 @@ def ttconf_optimizer(molecules: MolecularSystem | list[MolecularSystem], method:
         Use ensemble optimization of CREST for gradient optimization
     solve_collisions: bool, default=True
         Check for atom collisions for the initial indices and resolves them
+    verbosity: int, default=1
+        Verbosity level of the optimizer (0 = silent, 1 = info).
     bond_grids:
         Keywords specifying which grids to use when setting dihedrals:
 

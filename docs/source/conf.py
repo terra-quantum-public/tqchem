@@ -31,6 +31,7 @@ extensions = [
     "autoapi.extension",
     "nbsphinx",
     "nbsphinx_link",
+    "sphinx_rtd_theme",
 ]
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "**.ipynb_checkpoints"]
@@ -48,4 +49,4 @@ autoapi_options = [  # default without private functions
 autoapi_ignore = ["*/__main__.py"]
 autoapi_file_patterns = ["*.pyi", "*.py"]
 
-html_theme = "furo"
+html_theme = "sphinx_rtd_theme"

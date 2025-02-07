@@ -4,4 +4,4 @@ sphinx-autoapi
 nbsphinx
 nbconvert
 nbsphinx-link
-furo
+sphinx_rtd_theme

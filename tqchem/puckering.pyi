@@ -9,6 +9,9 @@ class PuckeringFrame:
     """Pucker coordinate frame.
 
     This class represents a frame in puckering coordinates.
+    There are N-3 puckering coordinates.
+    For odd rings these always come in pairs of an amplitude (q) and an offset (phi).
+    For even rings there are (N-4)/2 pairs and one additional amplitude.
 
     Puckering is implemented according to:
     D. Cremer, J. Pople, https://doi.org/10.1021/ja00839a011
@@ -20,9 +23,10 @@ class PuckeringFrame:
     y: np.ndarray
         in-plane y-coordinates of each atom
     q: np.ndarray
-        (n_atoms - 3) out-of-plane amplitudes
+        out-of-plane amplitudes
+        (n_atoms - 3)/2 for odd rings or (n_atoms - 3)/2 + 1 for even rings
     phi: np.ndarray
-        (n_atoms - 3) out-of-plane angles
+        (n_atoms - 3)/2 out-of-plane angles
     batframe: BATFrame
         BATFrame connecting the ring to the rest of the molecule
     cycle: list[int]
@@ -38,6 +42,12 @@ class PuckeringFrame:
     cycle: list = ...
     planar_only: bool = ...
     def update(self, frame) -> None: ...
+    @property
+    def n_qs(self):
+        """Number of q coordinates"""
+    @property
+    def n_phis(self):
+        """Number of phi coordinates"""
     def variable_coordinates(self, molecule: MolecularSystem, **kwargs) -> PuckeringFrame:
         """Select coordinates for optimization of conformers.
 
@@ -63,6 +73,8 @@ class PuckeringFrame:
         """Obtain ranges for each of the coordinates."""
     def closest_gridpoint(self, molecule: MolecularSystem) -> list[int]:
         """Return the gridpoint most similar to the provided molecule"""
+    def variable_string(self, add_grid: bool = True):
+        """String specifying the variables and optionally the grids of the puckering frame"""
     def __init__(self, x=..., y=..., q=..., phi=..., batframe=..., cycle=..., planar_only=...) -> None: ...
 
 def reference_coordinate_system(mol: MolecularSystem, cycle: tuple[int, ...]) -> tuple[np.array, np.array, np.array, np.array]:
@@ -71,6 +83,8 @@ def puckering_to_xyz(mol: MolecularSystem, frame: PuckeringFrame) -> MolecularSy
     """Transform puckering coordinates to xyz coordinates."""
 def xyz_to_puckering(mol: MolecularSystem, cycle: tuple[int, ...]) -> PuckeringFrame:
     """Transform xyz coordinates to puckering coordinates."""
+def pucker_coordinate_4ring(reference: PuckeringFrame, amplitude: float = 0.27) -> list[PuckeringFrame]:
+    """Generate planar and 2 butterfly structures"""
 def pucker_coordinate_5ring(reference: PuckeringFrame, amplitude: float = 0.8, n_phi: int = 12) -> list[PuckeringFrame]:
     """Generate sets of values representing the most relevant conformers of a 5 ring
 
@@ -89,7 +103,7 @@ def pucker_coordinate_5ring(reference: PuckeringFrame, amplitude: float = 0.8, n
         number of non-planar conformers created
         Specifies the discretization of the pseudorotational cycle shown in figure 1
     """
-def pucker_coordinate_6ring_smart(ref: PuckeringFrame, amplitude: float = 0.7, n_phi: float = 12, equatorial: bool = False, tropical: bool = False, planar: bool = True, axial: bool = True) -> list[PuckeringFrame]:
+def pucker_coordinate_6ring_smart(reference: PuckeringFrame, amplitude: float = 0.7, n_phi: float = 12, equatorial: bool = False, tropical: bool = False, planar: bool = True, axial: bool = True) -> list[PuckeringFrame]:
     """Selected generation of puckering points for 6 rings.
 
     Select which parts of the puckering sphere should be included by setting the flags.
@@ -101,7 +115,7 @@ def pucker_coordinate_6ring_smart(ref: PuckeringFrame, amplitude: float = 0.7, n
     tropical: include envelope conformation
     """
 def pucker_coordinate_6ring(reference: PuckeringFrame, amplitude: float = 0.7, n_phi: int = 12, n_theta: int = 5) -> list[PuckeringFrame]:
-    """Generate sets of values representing the most relevant conformers of a 5 ring
+    """Generate sets of values representing the most relevant conformers of a 6 ring
 
     As shown in Figure 2 of https://s3.smu.edu/dedman/catco/ring-puckering.html
 
@@ -111,3 +125,4 @@ def pucker_coordinate_6ring(reference: PuckeringFrame, amplitude: float = 0.7, n
 def planar_conformer(reference: PuckeringFrame) -> PuckeringFrame:
     """Returns planar ring conformer"""
 def is_planar_ring(cycle: list[int], graph: nx.Graph) -> bool: ...
+def is_even(n: int): ...

@@ -67,7 +67,7 @@ class InversionDihedral(Dihedral):
     Dummy class to make Dihedrals used for nitrogen inversion distinguishable
     and to save the 2 dihedral values defining the "normal" and "inverted" state
     '''
-    def __new__(cls, dihedral: tuple[int, int, int, int], allowed_values: list[float], mask: tuple[int, ...] = None):
+    def __new__(cls, dihedral: tuple[int, int, int, int], allowed_values: list[float], nitrogen: int, mask: tuple[int, ...] = None):
         """Initialize Dihedral as tuple containing 4 atom indices, the dihedral values
         defining the normal and inverted state and optionally a mask"""
 
@@ -128,6 +128,8 @@ class BATFrame(dict):
         """Return the grid range for all torsions in the frame"""
     def closest_gridpoint(self, molecule: MolecularSystem) -> list[int]:
         """Return the gridpoint most similar to the provided molecule"""
+    def variable_string(self, add_grid: bool = True) -> str:
+        """String specifying the variables and optionally the grids of the BAT frame"""
     def __add__(self, value: float) -> BATFrame: ...
     def __sub__(self, value: float) -> BATFrame: ...
 
@@ -189,7 +191,7 @@ def bat_to_xyz(mol: MolecularSystem, frame: BATFrame) -> MolecularSystem:
     """
 def improper_dihedral_path_ring(cycle: tuple[int, ...], connecting_atom: int) -> list[int]:
     """Get path for improper dihedral angle in a ring"""
-def get_dihedral_path(component: tuple[int, ...], component_sweep: list[tuple[int, ...]], molgraph: MolecularSystem, atom: int, root: int, improper_ring_dihedral: bool = True) -> list[int]:
+def get_dihedral_path(component: tuple[int, ...], component_sweep: list[tuple[int, ...]], molgraph: nx.Graph, atom: int, root: int, improper_ring_dihedral: bool = True) -> list[int]:
     """Get path to create dihedral angle for a given atom from MolGraph
 
     Based on a tree graph, the path to create a dihedral angle for a given atom
@@ -201,7 +203,7 @@ def get_dihedral_path(component: tuple[int, ...], component_sweep: list[tuple[in
         atoms for the component of the whole molecule
     component_sweep: list[tuple[int, ...]
         list of components
-    molgraph: MolecularSystem
+    molgraph: nx.Graph
         Molecular graph and ase.Atoms object
     atom: int
         atom to which the dihedral path leads

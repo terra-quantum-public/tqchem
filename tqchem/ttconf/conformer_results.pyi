@@ -1,7 +1,7 @@
 import pandas as pd
 from _typeshed import Incomplete
 from pathlib import Path
-from tqchem.chem import ase_to_xyz_content as ase_to_xyz_content
+from tqchem.chem import ase_to_xyz_content as ase_to_xyz_content, calculate_rmsd as calculate_rmsd, calculate_rotational_constants as calculate_rotational_constants
 from tqchem.internal_coordinates import MolecularGrid as MolecularGrid, MolecularSystem as MolecularSystem
 
 def write_xyz_list(filepath: Path | str, xyzs: list[str]) -> None: ...
@@ -58,13 +58,16 @@ class ConformerResults:
         """Write all sampled unrelaxed conformers to one xyz file
 
         Energy and objective (of the relaxed structures) are listed in the comment line"""
-    def minimum_energy_ensemble(self, energy_difference: float = 0.2, rmsd_cutoff: float = 0.1) -> list[str]:
+    def filter_ensemble(self, energy_window: float = 0.26, rmsd_threshold: float = 0.125, rotational_threshold: float = 0.01, energy_threshold: float = 0.002) -> None:
+        """Filters the ensemble based on the calculation of rmsd,
+        relative energies, and rotational constants between conformers"""
+    def minimum_energy_ensemble(self, energy_window: float = 0.26, rmsd_threshold: float = 0.125, rotational_threshold: float = 0.01, energy_threshold: float = 0.002) -> list[str]:
         """xyz strings within an energy and rmsd margin around the lowest energy conformer
 
         The xyz strings contain the gradient optimized structures and their
         energy and objective value are listed in the comment line
         """
-    def write_minimum_energy_ensemble(self, filepath: Path | str, energy_difference: float = 0.2, rmsd_cutoff: float = 0.1) -> None:
+    def write_minimum_energy_ensemble(self, filepath: Path | str, energy_window: float = 0.26, rmsd_threshold: float = 0.125, rotational_threshold: float = 0.01, energy_threshold: float = 0.002) -> None:
         """Write xyz within an energy and rmsd margin around the lowest energy conformer
 
         The xyz strings contain the gradient optimized structures and their
