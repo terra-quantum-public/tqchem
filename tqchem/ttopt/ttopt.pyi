@@ -30,6 +30,7 @@ class TTOpt:
     n_points_per_torsion: Incomplete
     multiple_indices_function: Incomplete
     i_opt: Incomplete
+    i_opt_list: Incomplete
     y_opt_list: Incomplete
     opt_opt_list: Incomplete
     cache: Incomplete

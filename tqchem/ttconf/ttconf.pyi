@@ -8,10 +8,10 @@ from tqchem.ttopt.ttopt import TTOpt as TTOpt
 from typing import Any, Callable
 
 class EnergyFilter:
-    """Class used to filter energies
+    """Class used to filter energies.
+
     Wrapper storing the reference energy to calculate energy differences
-    and apply some filter function like an exponential (boltzmann filter)
-    to it
+    and apply some filter function (e.g. an exponential for a Boltzmann filter) to it.
     """
     reference_energy: Incomplete
     filter_: Incomplete

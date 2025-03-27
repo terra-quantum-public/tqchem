@@ -2,19 +2,40 @@ from tqchem.chem import ase_from_rdkit as ase_from_rdkit, ase_to_rdkit as ase_to
 from tqchem.internal_coordinates import MolecularGrid as MolecularGrid, MolecularSystem as MolecularSystem
 from tqchem.ttconf.electronic_structure_interfaces import CrestEnsembleInterface as CrestEnsembleInterface, ElectronicStructureInterface as ElectronicStructureInterface, TBliteInterface as TBliteInterface, amberFF_interface as amberFF_interface, sageFF_interface as sageFF_interface
 from tqchem.ttconf.ttconf import EnergyFilter as EnergyFilter, EnsembleGridObjective as EnsembleGridObjective, MolecularGridObjective as MolecularGridObjective, TTopt_Optimizer as TTopt_Optimizer
+from typing import Callable
 
-def indices_from_rdkit_conformers(molgrid: MolecularGrid, n_conformers: int, indices: list[list[int]], charge: int = 0) -> list[list[int]]:
+def indices_from_rdkit_conformers(molgrid: MolecularGrid, n_conformers: int, indices: list[list[int]], charge: int = 0, seed: int = 42) -> list[list[int]]:
     """Calculates indices closest to the rdkit structures"""
 def solve_atom_collisions(molgrid: MolecularGrid, initial_indices: list[int]) -> list[int]:
-    """If atoms collide, search for a new set of indices without atom collisions"""
-def initial_tt_indices(molecules: list[MolecularSystem], molgrid: MolecularGrid, rank: int, solve_collisions: bool, charge: int = 0) -> list[list[int]]:
+    """If atoms collide, search for a new set of indices without atom collisions."""
+def initial_tt_indices(molecules: list[MolecularSystem], molgrid: MolecularGrid, rank: int, solve_collisions: bool, charge: int = 0, seed: int = 42) -> list[list[int]]:
     """Return indices to initialize the tensor train in TTOpt
 
-    Creates initial indices from provided molecules, rdkit conformers and random selection.
+    Creates initial indices from provided molecules, rdkit conformers, and random selection.
+
+    Parameters
+    ----------
+    molecules : list[MolecularSystem]
+        List of molecules provided as MolecularSystem objects.
+    molgrid : MolecularGrid
+        The molecular grid used for generating the grid points.
+    rank : int
+        The desired rank (number of indices) for initialization.
+    solve_collisions : bool
+        Whether to check for atom collisions and adjust indices accordingly.
+    charge : int, optional
+        Molecular charge, default is 0.
+    seed : int, optional
+        Seed for random number generation to ensure deterministic behavior, default is 42.
+
+    Returns
+    -------
+    list[list[int]]
+        A list of lists of indices for initializing the tensor train.
     """
-def molecularGridObjective(molgrid: MolecularGrid, method: str, filter_type: str, charge: int = 0, solvent: str = None, threads: int = 4, reference_energy: float = None, local_optimization: bool = True, ensemble_optimization: bool = False) -> MolecularGridObjective:
+def molecularGridObjective(molgrid: MolecularGrid, method: str, filter_type: str | Callable[[float], float], charge: int = 0, solvent: str = None, threads: int = 4, reference_energy: float = None, local_optimization: bool = True, ensemble_optimization: bool = False) -> MolecularGridObjective:
     """Construct a MolecularGridObjective"""
-def ttconf_optimizer(molecules: MolecularSystem | list[MolecularSystem], method: str = 'gfn2-xtb', n_sweeps: int = 2, rank: int = 2, seed: int = 42, threads: int = 4, charge: int = 0, solvent: str = None, filter_type: str = 'energy', reference_energy: float = None, local_optimization: bool = True, initialize_indices: bool = True, ensemble_optimization: bool = False, solve_collisions: bool = True, verbosity: int = 1, **bond_grids) -> TTopt_Optimizer:
+def ttconf_optimizer(molecules: MolecularSystem | list[MolecularSystem], method: str = 'gfn2-xtb', n_sweeps: int = 2, rank: int = 2, seed: int = 42, threads: int = 4, charge: int = 0, solvent: str = None, filter_type: str | Callable[[float], float] = 'energy', reference_energy: float = None, local_optimization: bool = True, initialize_indices: bool = True, ensemble_optimization: bool = False, solve_collisions: bool = True, verbosity: int = 1, **bond_grids) -> TTopt_Optimizer:
     '''Create Optimizer for the parameters provided
 
     Parameters
@@ -37,12 +58,13 @@ def ttconf_optimizer(molecules: MolecularSystem | list[MolecularSystem], method:
     solvent: str, default=None
         Solvent name
         Options: "water", "explicit water" and None (i.e. gas phase), case insensitive
-    filter_type: str, default="energy"
+    filter_type: str | Callable[[float], float], default="energy"
         Type of function to filter the energy with
         Options:
         "energy": E_i
         "energy difference": E_i - E_0
         "boltzmann energy difference": -exp(-(E_i - E_0))
+        Callable[[float], float]: some function f(E_i)
         where:
         E_0 is the energy of the current molecular system
         E_i is the energy of the system in iteration i
