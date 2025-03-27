@@ -1,6 +1,6 @@
 [project]
 name = "tqchem"
-version = "0.1.7"
+version = "0.1.8"
 description = "TQchem a toolkit for chemistry. It includes functions to represent molecular systems in internal coordinates and perform optimization."
 readme = "README.md"
 classifiers = [ "Programming Language :: Python :: 3", "License :: Other/Proprietary License", "Operating System :: OS Independent",]
@@ -34,7 +34,7 @@ requires = [ "setuptools>=40.8.0", "wheel",]
 build-backend = "setuptools.build_meta"
 
 [project.license]
-file = "LICENSE.txt"
+file = "LICENSE.md"
 
 [project.scripts]
 tqchem = "tqchem.__main__:main"
