@@ -1,6 +1,6 @@
 [project]
 name = "tqchem"
-version = "0.1.8"
+version = "0.1.9"
 description = "TQchem a toolkit for chemistry. It includes functions to represent molecular systems in internal coordinates and perform optimization."
 readme = "README.md"
 classifiers = [ "Programming Language :: Python :: 3", "License :: Other/Proprietary License", "Operating System :: OS Independent",]

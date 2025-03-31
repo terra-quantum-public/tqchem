@@ -171,13 +171,15 @@ def molecularSystem(input_: Path | str | ase.Atoms | Chem.Mol, format_: str = No
     -------
     MolecularSystem
     """
-def drawGraph(graph: nx.Graph) -> None:
+def drawGraph(graph: nx.Graph, **kwargs) -> None:
     """Visualize the graph used for the molecule
 
     Parameters
     ----------
     graph: nx.Graph
         Graph representing the molecule
+    kwargs: dict[str, Any]
+        keyword arguments for nx.draw overwriting the default arguments set here
     """
 def tree_from_graph(graph: nx.Graph) -> nx.Graph:
     """Make tree from graph by opening cycles in the graph
