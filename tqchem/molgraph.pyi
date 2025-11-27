@@ -50,6 +50,7 @@ class MolecularSystem:
     graph: Incomplete
     open_graph: Incomplete
     component_sweep: Incomplete
+    charge: Incomplete
     def __init__(self, molecule: MolecularSystem = None) -> None: ...
     def component_type(self, component: list[int]) -> str:
         """For a given component return if it's a batframe, ring or bridge"""
@@ -59,6 +60,11 @@ class MolecularSystem:
         """Return root node of the graph"""
     def copy(self) -> MolecularSystem:
         """Deepcopy of the molecular system"""
+    def shallow_copy(self) -> MolecularSystem:
+        """Only make a copy of ase.Atoms not of the graph related attributes
+
+        This is a fix for slow execution times, should be changed in the future
+        """
     def write(self, filename) -> None:
         """Wrapper for ase.io.write"""
     def get_positions(self):
@@ -102,7 +108,7 @@ class MolecularSystem:
             Overwrite all bond specific grids with this grid
         """
 
-def molecule_from_ase(mol_ase: ase.Atoms, single_batframe: bool = False) -> MolecularSystem:
+def molecule_from_ase(mol_ase: ase.Atoms, single_batframe: bool = False, charge: int = 0) -> MolecularSystem:
     """Construct MolecularSystem from ase.Atoms object.
 
     Parameters
@@ -112,12 +118,14 @@ def molecule_from_ase(mol_ase: ase.Atoms, single_batframe: bool = False) -> Mole
     single_batframe: bool = False,
         Use a single batframe for the entire molecule instead of using
         special puckering coordinates for the rings
+    charge: int = 0,
+        Charge of the molecular system
 
     Returns
     -------
     MolecularSystem
     """
-def molecule_from_rdkit(rd_mol: Chem.Mol, single_batframe: bool = False) -> MolecularSystem:
+def molecule_from_rdkit(rd_mol: Chem.Mol, single_batframe: bool = False, charge: int = 0) -> MolecularSystem:
     """Construct MolecularSystem from rdkit.Mol object.
 
     Parameters
@@ -127,8 +135,10 @@ def molecule_from_rdkit(rd_mol: Chem.Mol, single_batframe: bool = False) -> Mole
     single_batframe: bool = False,
         Use a single batframe for the entire molecule instead of using
         special puckering coordinates for the rings
+    charge: int = 0,
+        Charge of the molecular system
     """
-def molecule_from_file(file_: str | Path, format_: str = None, single_batframe: bool = False) -> MolecularSystem:
+def molecule_from_file(file_: str | Path, format_: str = None, single_batframe: bool = False, charge: int = 0) -> MolecularSystem:
     """Construct MolecularSystem from molecule file.
 
     Parameters
@@ -141,8 +151,10 @@ def molecule_from_file(file_: str | Path, format_: str = None, single_batframe: 
     single_batframe: bool = False,
         Use a single batframe for the entire molecule instead of using
         special puckering coordinates for the rings
+    charge: int = 0,
+        Charge of the molecular system
     """
-def molecule_from_smiles(smiles: str, single_batframe: bool = False) -> MolecularSystem:
+def molecule_from_smiles(smiles: str, single_batframe: bool = False, charge: int = 0) -> MolecularSystem:
     """Construct MolecularSystem from SMILES string.
 
     Parameters
@@ -152,8 +164,10 @@ def molecule_from_smiles(smiles: str, single_batframe: bool = False) -> Molecula
     single_batframe: bool = False,
         Use a single batframe for the entire molecule instead of using
         special puckering coordinates for the rings
+    charge: int = 0,
+        Charge of the molecular system
     """
-def molecularSystem(input_: Path | str | ase.Atoms | Chem.Mol, format_: str = None, single_batframe: bool = False) -> MolecularSystem:
+def molecularSystem(input_: Path | str | ase.Atoms | Chem.Mol, format_: str = None, single_batframe: bool = False, charge: int = 0) -> MolecularSystem:
     """Smart factory for MolecularSystem
 
     Parameters
@@ -166,6 +180,8 @@ def molecularSystem(input_: Path | str | ase.Atoms | Chem.Mol, format_: str = No
     single_batframe: bool = False,
         Use a single batframe for the entire molecule instead of using
         special puckering coordinates for the rings
+    charge: int = 0,
+        Charge of the molecular system
 
     Returns
     -------

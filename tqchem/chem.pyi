@@ -1,6 +1,7 @@
 import ase
 import numpy as np
 import rdkit.Chem as Chem
+from openmm.app import Simulation as Simulation
 from pathlib import Path
 
 def is_smiles_string(string: str) -> bool:
@@ -106,8 +107,8 @@ def rdkit_molecules_to_xyz(molecules: list[Chem.Mol], path: str | Path) -> None:
     path: str | Path
         Path to the xyz file
     """
-def adjacencyMatrix(mol: ase.Atoms) -> np.ndarray:
-    """Determine adjacency matrix based on atomic distances
+def distance_matrix(mol: ase.Atoms) -> np.ndarray:
+    """Calculate matrix of distances between all atoms
 
     Parameters
     ----------
@@ -117,16 +118,16 @@ def adjacencyMatrix(mol: ase.Atoms) -> np.ndarray:
     Returns
     -------
     mat: np.array
-        Adjacency matrix for each pair of atoms
+        Distance matrix for each pair of atoms
     """
-def bondMatrix(mol: ase.Atoms, radius_cutoff: float = ...):
+def bond_matrix(mol: ase.Atoms, radius_scale: float = ...):
     """Determine bond matrix based on atomic distances
 
     Parameters
     ----------
     mol: ase.atoms.Atoms
         Object representing the molecule
-    radius_cutoff: float
+    radius_scale: float
         Cutoff for the bond length
 
     Returns
@@ -138,7 +139,7 @@ def determineBonds(mol: ase.Atoms) -> np.ndarray:
     """Determine the bonds based on the adjacency matrix"""
 def element_color(atomic_number: int) -> tuple[float, float, float]:
     """Return element color for a given atomic number"""
-def wiberg_bond_orders(molecule: ase.Atoms) -> np.ndarray: ...
+def wiberg_bond_orders(molecule: ase.Atoms, charge: int = 0) -> np.ndarray: ...
 def atoms_collided(molecule: ase.Atoms, cutoff: float = 0.5) -> bool:
     """True if two atoms are closer than a set cutoff."""
 def adjacency_differs(adjacency1: np.ndarray, adjacency2: np.ndarray) -> bool:
@@ -175,3 +176,24 @@ def align_molecule(molecule: ase.Atoms, reference_molecule: ase.Atoms) -> ase.At
     """Align molecule to a reference molecule"""
 def calculate_rmsd(input1: Path | str | ase.Atoms | Chem.Mol, input2: Path | str | ase.Atoms | Chem.Mol, align: bool = True, center: bool = True):
     """Calculate RMSD based on Kabsch algorithm for two sets of coordinates"""
+def openmm_lbfgs(simulation: Simulation, initial_positions: np.ndarray[np.ndarray[float]], tolerance: float = 1.0, maxIterations: int = 100, movable: np.ndarray[int] = None) -> tuple[float, np.ndarray[np.ndarray[float]]]:
+    """Performs local L-BFGS-B optimization implemented in scipy for the OpenMM Simulation object.
+
+    Arguments
+    ---------
+    simulation: Simulation
+        OpenMM Simulation object
+    initial_positions: np.ndarray[np.ndarray[float]]
+        Initial positions of the system in angstroms.
+    tolerance: float, default=1.0
+       Tolerance for the optimizer in units of kJ/nm.
+    maxIterations: int, default=100
+        Maximum number of optimization steps.
+    movable: np.ndarray[int], default=None
+        Indices of movable atoms. If None, then all are movable.
+
+    Returns
+    -------
+    Optimum energy in units of Ev.
+    Atom positions at optimum in angstroms.
+    """

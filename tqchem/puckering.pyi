@@ -75,11 +75,10 @@ class PuckeringFrame:
         """Return the gridpoint most similar to the provided molecule"""
     def variable_string(self, add_grid: bool = True):
         """String specifying the variables and optionally the grids of the puckering frame"""
-    def __init__(self, x=..., y=..., q=..., phi=..., batframe=..., cycle=..., planar_only=...) -> None: ...
 
 def reference_coordinate_system(mol: MolecularSystem, cycle: tuple[int, ...]) -> tuple[np.array, np.array, np.array, np.array]:
     """Obtain x0, y0, z0 from the current geometry"""
-def puckering_to_xyz(mol: MolecularSystem, frame: PuckeringFrame) -> MolecularSystem:
+def puckering_to_xyz(mol: MolecularSystem, frame: PuckeringFrame) -> None:
     """Transform puckering coordinates to xyz coordinates."""
 def xyz_to_puckering(mol: MolecularSystem, cycle: tuple[int, ...]) -> PuckeringFrame:
     """Transform xyz coordinates to puckering coordinates."""

@@ -174,7 +174,7 @@ def xyz_to_bat(mol: MolecularSystem, frame: BATFrame) -> BATFrame:
     frame: BATFrame
         frame with overwritten values for the BATCoordinates
     """
-def bat_to_xyz(mol: MolecularSystem, frame: BATFrame) -> MolecularSystem:
+def bat_to_xyz(mol: MolecularSystem, frame: BATFrame) -> None:
     """Transform BAT to XYZ coordinates
 
     Parameters
@@ -183,11 +183,6 @@ def bat_to_xyz(mol: MolecularSystem, frame: BATFrame) -> MolecularSystem:
         Molecule as represented in tqchem
     frame: BATFrame
         Internal coordinates (defined by atom indices) and their values
-
-    Returns
-    -------
-    new_molecule: MolecularSystem
-        Molecule with geometry updated  based on the BATFrame
     """
 def improper_dihedral_path_ring(cycle: tuple[int, ...], connecting_atom: int) -> list[int]:
     """Get path for improper dihedral angle in a ring"""

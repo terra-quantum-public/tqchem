@@ -73,7 +73,7 @@ class TTOpt:
             them will be recalculated without using the cache.
 
         """
-    def comp_opt(self, setsOfIndices, n_sweeps, i_opt: Incomplete | None = None, y_opt: Incomplete | None = None, opt_opt: Incomplete | None = None):
+    def comp_opt(self, setsOfIndices, n_sweeps, i_opt=None, y_opt=None, opt_opt=None):
         '''Compute the function for the set of points and save current optimum.
 
         This helper function (this is wrapper for function "comp") can be

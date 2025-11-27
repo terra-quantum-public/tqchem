@@ -4,7 +4,8 @@ import numpy as np
 from _typeshed import Incomplete
 from abc import ABC
 from openmm.app import Simulation
-from tqchem.chem import adjacency_differs as adjacency_differs, ase_to_rdkit as ase_to_rdkit, atoms_collided as atoms_collided, bondMatrix as bondMatrix
+from pathlib import Path
+from tqchem.chem import adjacency_differs as adjacency_differs, ase_to_rdkit as ase_to_rdkit, atoms_collided as atoms_collided, bond_matrix as bond_matrix
 from tqchem.ttconf.crest_wrapper import launch_crest as launch_crest
 
 DielectricConstant: Incomplete
@@ -114,21 +115,7 @@ class OpenFFInterface(ElectronicStructureInterface):
             perform short relaxation with gradient optimizer
         """
 
-def sageFF_interface(molecule: ase.Atoms, local_optimization: bool = True, charge: int = 0, solvent: str = None) -> OpenFFInterface:
-    """Set up OpenMM simulation environment for the Sage OpenFF forcefield
-
-    Parameters
-    ----------
-    molecule: ase.Atoms
-        Molecule to create openMM simulation object from
-    local_optimization: bool, default=True
-        Enable gradient optimziation
-    charge: int, default=0
-        Formal charge of the molecule
-    solvent: str, default=None
-        Add implicit solvation using solvent specified by name
-    """
-def amberFF_interface(molecule: ase.Atoms, local_optimization: bool = True, charge: int = 0, solvent: str = None) -> OpenFFInterface:
+def amberFF_interface(molecule: ase.Atoms, local_optimization: bool = True, charge: int = 0, solvent: str = None, ff_cache_file: Path = None) -> OpenFFInterface:
     """Set up OpenMM Simulation environment for Amber Forcefield
 
     Parameters
@@ -141,6 +128,8 @@ def amberFF_interface(molecule: ase.Atoms, local_optimization: bool = True, char
         Formal charge of the molecule
     solvent: str, default=None
         Add implicit solvation using solvent specified by name
+    ff_cache_file: Path, default=None
+        Cache file containing FF parameters to pass to the FF generator
     """
 
 class CrestEnsembleInterface:

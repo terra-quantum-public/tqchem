@@ -1,6 +1,7 @@
+from pathlib import Path
 from tqchem.chem import ase_from_rdkit as ase_from_rdkit, ase_to_rdkit as ase_to_rdkit, atoms_collided as atoms_collided, generate_rdkit_conformers as generate_rdkit_conformers
 from tqchem.internal_coordinates import MolecularGrid as MolecularGrid, MolecularSystem as MolecularSystem
-from tqchem.ttconf.electronic_structure_interfaces import CrestEnsembleInterface as CrestEnsembleInterface, ElectronicStructureInterface as ElectronicStructureInterface, TBliteInterface as TBliteInterface, amberFF_interface as amberFF_interface, sageFF_interface as sageFF_interface
+from tqchem.ttconf.electronic_structure_interfaces import CrestEnsembleInterface as CrestEnsembleInterface, ElectronicStructureInterface as ElectronicStructureInterface, TBliteInterface as TBliteInterface, amberFF_interface as amberFF_interface
 from tqchem.ttconf.ttconf import EnergyFilter as EnergyFilter, EnsembleGridObjective as EnsembleGridObjective, MolecularGridObjective as MolecularGridObjective, TTopt_Optimizer as TTopt_Optimizer
 from typing import Callable
 
@@ -33,9 +34,9 @@ def initial_tt_indices(molecules: list[MolecularSystem], molgrid: MolecularGrid,
     list[list[int]]
         A list of lists of indices for initializing the tensor train.
     """
-def molecularGridObjective(molgrid: MolecularGrid, method: str, filter_type: str | Callable[[float], float], charge: int = 0, solvent: str = None, threads: int = 4, reference_energy: float = None, local_optimization: bool = True, ensemble_optimization: bool = False) -> MolecularGridObjective:
+def molecularGridObjective(molgrid: MolecularGrid, method: str, filter_type: str | Callable[[float], float], charge: int = 0, solvent: str = None, threads: int = 4, reference_energy: float = None, local_optimization: bool = True, ensemble_optimization: bool = False, ff_cache: Path = None) -> MolecularGridObjective:
     """Construct a MolecularGridObjective"""
-def ttconf_optimizer(molecules: MolecularSystem | list[MolecularSystem], method: str = 'gfn2-xtb', n_sweeps: int = 2, rank: int = 2, seed: int = 42, threads: int = 4, charge: int = 0, solvent: str = None, filter_type: str | Callable[[float], float] = 'energy', reference_energy: float = None, local_optimization: bool = True, initialize_indices: bool = True, ensemble_optimization: bool = False, solve_collisions: bool = True, verbosity: int = 1, **bond_grids) -> TTopt_Optimizer:
+def ttconf_optimizer(molecules: MolecularSystem | list[MolecularSystem], method: str = 'gfn2-xtb', n_sweeps: int = 2, rank: int = 2, seed: int = 42, threads: int = 4, charge: int = 0, solvent: str = None, filter_type: str | Callable[[float], float] = 'energy', reference_energy: float = None, local_optimization: bool = True, initialize_indices: bool = True, ensemble_optimization: bool = False, solve_collisions: bool = True, ff_cache: Path = None, verbosity: int = 1, **bond_grids) -> TTopt_Optimizer:
     '''Create Optimizer for the parameters provided
 
     Parameters
@@ -44,7 +45,7 @@ def ttconf_optimizer(molecules: MolecularSystem | list[MolecularSystem], method:
         Molecules provided as MolecularSystem
     method: str, default="gfn2-xtb"
         Electronic structure method used
-        Options: "GFN1-xTB", "GFN2-xTB", "Sage-FF", "Amber-FF", case insensitive
+        Options: "GFN1-xTB", "GFN2-xTB", "Amber-FF", case insensitive
     n_sweeps: int, default=2
         Number of sweeps through the tensor train
     rank: int, default=2

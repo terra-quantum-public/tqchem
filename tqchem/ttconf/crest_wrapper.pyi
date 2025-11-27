@@ -1,6 +1,9 @@
 import ase
 import numpy as np
+from _typeshed import Incomplete
 from pathlib import Path
+
+logger: Incomplete
 
 def launch_crest(input_structures: list[ase.Atoms], method: str = 'GFN2-xTB', threads: int = 4, optlevel: str = 'normal', charge: int = 0, solvent: str = None) -> tuple[list[ase.Atoms], np.ndarray]:
     """Runs a CREST optimization for a given ensemble of conformers.

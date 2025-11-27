@@ -1,5 +1,3 @@
-from _typeshed import Incomplete
-
 def maxvol(A, e: float = 1.05, k: int = 100):
     '''Compute the maximal-volume submatrix for given tall matrix.
 
@@ -26,7 +24,7 @@ def maxvol(A, e: float = 1.05, k: int = 100):
         Matrix Methods: Theory, Algorithms And Applications: Dedicated to the Memory of Gene Golub (2010): 247-256.
 
     '''
-def maxvol_rect(A, e: float = 1.1, dr_min: int = 0, dr_max: Incomplete | None = None, e0: float = 1.05, k0: int = 10):
+def maxvol_rect(A, e: float = 1.1, dr_min: int = 0, dr_max=None, e0: float = 1.05, k0: int = 10):
     '''Compute the maximal-volume rectangular submatrix for given tall matrix.
 
     Within the framework of this function, the original maxvol algorithm is

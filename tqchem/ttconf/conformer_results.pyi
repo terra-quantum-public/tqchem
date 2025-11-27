@@ -1,5 +1,4 @@
 import pandas as pd
-from _typeshed import Incomplete
 from pathlib import Path
 from tqchem.chem import ase_to_xyz_content as ase_to_xyz_content, calculate_rmsd as calculate_rmsd, calculate_rotational_constants as calculate_rotational_constants
 from tqchem.internal_coordinates import MolecularGrid as MolecularGrid, MolecularSystem as MolecularSystem
@@ -41,8 +40,8 @@ class ConformerResults:
     write_minimum_energy_ensemble: None
         Write all conformers within an energy margin around the lowest energy conformer
     """
-    dataframe: Incomplete
-    molgrid: Incomplete
+    dataframe: pd.DataFrame
+    molgrid: MolecularGrid
     def __init__(self, dataframe: pd.DataFrame, molecular_grid: MolecularGrid) -> None: ...
     def minimum_energy_xyz(self) -> str:
         """Return xyz content of gradient optimized geometry with lowest energy"""
