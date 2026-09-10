@@ -10,7 +10,7 @@
 ## **Prerequisites for Installation**
 
 1. **Python Version**:
-   Ensure you have Python **>=3.10** installed.
+   Ensure you have Python **3.11, 3.12 or 3.13** installed.
 
 2. **Conda Environment Manager**:
    You must have one of the following environment managers installed:
