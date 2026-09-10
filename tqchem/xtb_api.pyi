@@ -1,8 +1,18 @@
 from _typeshed import Incomplete
+from functools import cache
 from tqchem.molgraph import MolecularSystem as MolecularSystem, molecule_from_file as molecule_from_file
 
 XTB_METHODS: Incomplete
+MINIMUM_ACCURATE_XTB_VERSION: Incomplete
 
+@cache
+def xtb_version() -> tuple[int, int, int]:
+    """Version of the xtb binary on PATH
+
+    Cached because callers may ask once per energy evaluation.
+    """
+def warn_if_xtb_is_outdated(calculation: str) -> None:
+    """Warn that an old xtb binary changes the result of the given calculation"""
 def xtb_singlepoint(molecule: MolecularSystem, method: str = 'gfn1-xtb', charge: int = 0):
     '''
     Performs a single-point energy calculation using xTB.

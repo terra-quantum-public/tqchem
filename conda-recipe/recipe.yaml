@@ -9,38 +9,52 @@ package:
 
 source:
   path: ../
+  # matches the public repository, where this recipe is built; its .gitignore
+  # must never cover anything the build needs, notably the pyarmor runtimes
   use_gitignore: true
 
 build:
   noarch: python
+  # generated per environment so the shebang matches the installed interpreter
+  python:
+    entry_points:
+      - tqchem = tqchem.__main__:main
   script: pip install . -v
 
 requirements:
   host:
     - pip
-    - python ==3.12
+    - python >=3.11,<3.13
     - setuptools
     - wheel
   run:
+    - python >=3.11,<3.13
     - openff-toolkit >=0.16.5,<0.17
-    - tblite-python >=0.3.0,<0.4
-    - xtb >=6.5.1,<7
-    - rdkit >=2024.3.5,<2025
+    # tblite 0.6 segfaults in the bond order calculation on macOS 26. Holding
+    # below it also holds xtb at 6.4.1, because 6.7.1 requires tblite 0.6.
+    - tblite-python >=0.5,<0.6
+    - xtb >=6.4.1,<7
+    - rdkit >=2025.3.6,<2026
     - networkx >=3.4.1,<4
     - openmm >=8.1.2,<9
     - matplotlib >=3.9.2,<4
     - ase >=3.23.0,<4
-    - numpy >=1.26.4,<2
+    - numpy >=2.1.3,<3
     - py3dmol >=2.4.0,<3
-    - keygen-py >=0.1.2,<1
+    - keygen-py >=0.2.1,<1
     - py-machineid >=0.6.0,<0.7
-    - crest >=2.12,<3
-    - openmmforcefields >=0.14.1, <0.15
+    - importlib_resources >=6.5.2,<7
+    - crest >=3.0.2,<4
+    - openmmforcefields >=0.14.2, <0.15
     - pandas >=2.2.3,<3
     - plotly >=5.24.1,<6
-    - grpcio >=1.62.2,<2
-    - grpcio-tools >=1.62.2,<2
-    - grpcio-reflection >=1.62.2,<2
+
+# TODO: needs environment variable to work
+#tests:
+#  - python:
+#      imports:
+#        - tqchem
+#      pip_check: false
 
 about:
   description: ${{ description }}

@@ -34,8 +34,9 @@ No more need to manually manage molecular setups—let `tqchem` handle it. From 
 
 To run `tqchem`, ensure your system meets the following requirements:
 
-- Modern operating system (macOS 12.0+, Windows 10+, or Linux)
-- Python 3.9 or above
+- Linux (x86-64) or macOS on Apple silicon. Intel macOS should work but is not tested.
+  Windows is not supported, because CREST has no Windows build.
+- Python 3.11 or 3.12
 - Conda for environment management
 
 ## Quick Start
@@ -43,7 +44,7 @@ To run `tqchem`, ensure your system meets the following requirements:
 To quickly set up your environment and start using `tqchem`, follow these steps:
 
 ```bash
-conda create -n my_env_name python=3.9  # create the environment
+conda create -n my_env_name python=3.12  # create the environment
 conda activate my_env_name             # activate your environment
 conda install tqchem -c conda-forge -c https://repo.prefix.dev/terraquantumag  # install tqchem
 tqchem ttconf -h                       # for ttconf help and options
@@ -56,6 +57,8 @@ To install `tqchem` using `conda`, the following command will set up all necessa
 ```bash
 conda install tqchem -c conda-forge -c https://repo.prefix.dev/terraquantumag
 ```
+
+See the [Installation Guide](./INSTALLATION.md) for prerequisites, licensing and support.
 
 # Running an Exemplary Experiment
 

@@ -10,15 +10,24 @@ The non-commercial version of ``tqchem`` comes with limited functionality.
 Installation
 ============
 
-You can install tqchem from conda via
+``tqchem`` requires Python 3.11 or 3.12 on Linux (x86-64) or macOS.
+Windows is not supported, because CREST has no Windows build.
+
+Install it into a fresh environment:
 
 .. code-block:: shell
 
+    conda create -n tqchem python=3.12
+    conda activate tqchem
     conda install tqchem -c conda-forge -c https://repo.prefix.dev/terraquantumag
+
+See the `installation guide
+<https://github.com/terra-quantum-public/tqchem/blob/main/INSTALLATION.md>`_ for
+licensing and troubleshooting.
 
 
 You need a license key to perform simulations with tqchem.
-You can request non-commercial access via `this request form <https://terraquantum.swiss/tqchem-request-access>`_.
+You can request non-commercial access via `this request form <https://terraquantum.swiss/tqchem/enabling-technology/>`_.
 
 Usage
 =====
