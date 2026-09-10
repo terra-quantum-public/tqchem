@@ -70,7 +70,7 @@ jobs:
         with:
           upload-artifact: 'true'
           artifact-name: 'conda'
-          recipe-path: '.conda-recipe/recipe.yaml'
+          recipe-path: 'conda-recipe/recipe.yaml'
           build-args: '--experimental'
 
   release:
