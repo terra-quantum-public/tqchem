@@ -37,7 +37,7 @@ To run `tqchem`, ensure your system meets the following requirements:
 - Linux (x86-64) or macOS on Apple silicon. Intel macOS should work but is not tested.
   Windows is not supported, because CREST has no Windows build.
 - Python 3.11 or 3.12
-- Conda for environment management
+- Pixi or Conda for environment management
 
 ## Quick Start
 
@@ -56,6 +56,13 @@ To install `tqchem` using `conda`, the following command will set up all necessa
 
 ```bash
 conda install tqchem -c conda-forge -c https://repo.prefix.dev/terraquantumag
+```
+
+Or with `pixi`, in a project directory:
+
+```bash
+pixi project channel add https://repo.prefix.dev/terraquantumag
+pixi add tqchem
 ```
 
 See the [Installation Guide](./INSTALLATION.md) for prerequisites, licensing and support.

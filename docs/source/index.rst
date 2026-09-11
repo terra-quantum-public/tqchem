@@ -21,6 +21,13 @@ Install it into a fresh environment:
     conda activate tqchem
     conda install tqchem -c conda-forge -c https://repo.prefix.dev/terraquantumag
 
+Or with ``pixi``, in a project directory:
+
+.. code-block:: shell
+
+    pixi project channel add https://repo.prefix.dev/terraquantumag
+    pixi add tqchem
+
 See the `installation guide
 <https://github.com/terra-quantum-public/tqchem/blob/main/INSTALLATION.md>`_ for
 licensing and troubleshooting.

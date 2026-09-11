@@ -17,8 +17,9 @@
 2. **Python Version**:
    Ensure you have Python **3.11 or 3.12** installed.
 
-3. **Conda Environment Manager**:
-   You must have one of the following environment managers installed:
+3. **Environment Manager**:
+   You must have one of the following installed:
+    - [Pixi](https://pixi.sh/)
     - [Conda](https://docs.conda.io/projects/conda/en/stable/)
     - [Anaconda](https://www.anaconda.com/download)
     - [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
@@ -38,6 +39,35 @@
    ```
 
 ## **Installation Steps**
+
+Install TQChem with either Pixi or Conda. Both are supported; Pixi needs less care to
+get right.
+
+### With Pixi
+
+Pixi keeps the environment inside a project directory, so there is nothing global to
+conflict with:
+
+```bash
+pixi init tqchem
+cd tqchem
+pixi project channel add https://repo.prefix.dev/terraquantumag
+pixi add tqchem
+pixi shell
+```
+
+`pixi init` already includes `conda-forge`, so only the TQChem channel has to be added,
+and the supported Python version is taken from the package itself.
+
+To have your license key present whenever the environment is active, add it to
+`pixi.toml` instead of exporting it by hand:
+
+```toml
+[activation.env]
+TQCHEM_LICENSE_KEY = "<YOUR_LICENSE_KEY>"
+```
+
+### With Conda
 
 Create a dedicated environment and install TQChem into it:
 

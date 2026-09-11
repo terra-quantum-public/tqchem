@@ -30,10 +30,9 @@ requirements:
   run:
     - python >=3.11,<3.13
     - openff-toolkit >=0.16.5,<0.17
-    # tblite 0.6 segfaults in the bond order calculation on macOS 26. Holding
-    # below it also holds xtb at 6.4.1, because 6.7.1 requires tblite 0.6.
-    - tblite-python >=0.5,<0.6
-    - xtb >=6.4.1,<7
+    - tblite-python >=0.4,<0.5
+    # the geometry optimizer in 6.4.1 aborts on every input
+    - xtb >=6.7.1,<7
     - rdkit >=2025.3.6,<2026
     - networkx >=3.4.1,<4
     - openmm >=8.1.2,<9
@@ -44,7 +43,8 @@ requirements:
     - keygen-py >=0.2.1,<1
     - py-machineid >=0.6.0,<0.7
     - importlib_resources >=6.5.2,<7
-    - crest >=3.0.2,<4
+    # crest 3 silently returns a placeholder energy for anything above ~18 atoms
+    - crest >=2.12,<3
     - openmmforcefields >=0.14.2, <0.15
     - pandas >=2.2.3,<3
     - plotly >=5.24.1,<6
